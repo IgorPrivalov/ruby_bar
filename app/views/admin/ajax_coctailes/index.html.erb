@@ -1,0 +1,14 @@
+<div id="coctailes">
+  <div class="row">
+    <div class="col-md-1 col-md-offset-1">id</div>
+    <div class="col-md-3">Coctaile Name</div>
+    <div class="col-md-2">Value</div>
+    <div class="col-md-2">Price</div>
+    <div class="col-md-2">Actions</div>
+    <div class="col-md-2"></div>
+  </div>
+  <hr>
+  <% @coctailes.each do |coctaile| %>
+      <%= render partial: 'coctaile', locals: {coctaile: coctaile} %>
+  <% end %>
+</div>

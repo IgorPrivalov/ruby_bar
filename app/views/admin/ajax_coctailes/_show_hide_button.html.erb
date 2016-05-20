@@ -1,0 +1,9 @@
+<% if coctaile.hiden? %>
+    <%= link_to admin_show_hide_path(coctaile), method: :put, remote: true do %>
+        <p class="btn btn-default">show</p>
+    <% end %>
+<% else %>
+    <%= link_to admin_show_hide_path(coctaile), method: :put, remote: true do %>
+        <p class="btn btn-default">hide</p>
+    <% end %>
+<% end %>

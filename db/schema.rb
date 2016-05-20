@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513070641) do
+ActiveRecord::Schema.define(version: 20160520155306) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -34,11 +34,12 @@ ActiveRecord::Schema.define(version: 20160513070641) do
 
   create_table "coctailes", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "image"
     t.integer  "have_alc"
     t.float    "value"
+    t.boolean  "hiden",      default: false
   end
 
   create_table "ingredients", force: :cascade do |t|

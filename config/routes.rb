@@ -61,5 +61,7 @@ Rails.application.routes.draw do
        resources :products
        resources :coctailes
        resources :ajax_products
+       resources :ajax_coctailes
+       put 'show_hide' => "ajax_coctailes#show_hide"
      end
 end

@@ -1,0 +1,2 @@
+var but = $("<%= "##{@coctaile.id}" %>")
+but.html("<%= escape_javascript(render partial: 'coctaile', locals: {coctaile: @coctaile}) %>")

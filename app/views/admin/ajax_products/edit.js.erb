@@ -1,0 +1,2 @@
+var row= $("<%= "##{@product.id}" %>")
+row.html("<%= escape_javascript(render partial: 'product', locals: {product: @product, mode: :edit}) %>")

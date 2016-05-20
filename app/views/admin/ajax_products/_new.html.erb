@@ -1,0 +1,12 @@
+<div class="row" id="new">
+  <%= form_for product, url: admin_ajax_products_path(product), method: :post, remote: true do |f| %>
+      <div class="col-xs-10">
+        <%= render partial: 'form', locals: {product: product, f: f} %>
+      </div>
+      <div class="col-xs-2">
+        <%= button_tag(class: "btn btn-default") do %>
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+        <% end %>
+      </div>
+  <% end %>
+</div>

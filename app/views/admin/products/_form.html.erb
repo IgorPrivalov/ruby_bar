@@ -1,0 +1,38 @@
+<div class="body_panel panel-default">
+  <div class="panel-body">
+    <%= form_field_text(f, :name) %>
+    <div class='row dield form-group'>
+      <%= form_field_row_numeric(f, :cost_price) %>
+      <%= form_field_row_numeric(f, :min_value) %>
+      <%= form_field_row_select(f, :type, :product_type, Product.product_types) %>
+    </div>
+    <div class="field form-group">
+      <%= form_field_radio(f, :have_alc) %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :image, class: "col-md-2 control-label" %>
+      <div class="col-sm-3">
+        <%= f.file_field :image, multiple: false %>
+      </div>
+    </div>
+    <% if @product.image? %>
+      <div class="field form-group">
+        <div class="col-md-2 control-label"></div>
+        <div class="col-sm-5">
+          <%= f.check_box :remove_image %> Remove image
+        </div>
+      </div>
+      <div class="field form-group">
+        <div class="col-md-2 control-label"></div>
+        <div class="col-md-10">
+          <%= image_tag(@product.image_url, size: '380', class: "img-thumbnail") if @product.image? %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="actions form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit "Save" %>
+  </div>
+</div>

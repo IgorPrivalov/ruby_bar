@@ -1,0 +1,10 @@
+<%= render partial: 'layouts/partials/header' %>
+<ul>
+  <li><%= "ID: #{@product.id}" %></li>
+  <li><%= "Name #{@product.name}" %></li>
+  <li><%= "Min_value #{@product.min_value}" %></li>
+  <li><%= "Cost_price #{@product.cost_price}" %></li>
+  <li><%= "Type: #{@product.product_type}" %></li>
+  <li><%= "Have_alcohol #{@product.have_alc}" %></li>
+  <li><%= image_tag(@product.image_url, size: '380') %></li>
+</ul>

@@ -1,0 +1,24 @@
+<div class="panel-body">
+    <h3><%= @coctaile.name %> <p class="btn btn-success"> $<%= @coctaile.price %></p></h3>
+    <div class="line-coctaile"></div>
+  <div class="row panel-body">
+    <div class="col-sm-4 col-sm-offset-1">
+      <%= image_tag(@coctaile.image_url, size: '300', class: 'img-thumbnail') if @coctaile.image? %>
+    </div>
+    <div class="col-sm-5 cols-sm-offset-1">
+      <% @coctaile.ingredients.each do |ingredient| %>
+        <div class="row">
+			<div class="col-sm-2">
+				<%= image_tag(ingredient.product.image_url, size: '50') if ingredient.product.image? %>
+			</div>
+			<div class="col-sm-4">
+				<%= ingredient.product.name %>
+			</div>
+			<div class="col-sm-4">
+				<%= ingredient.value %>
+			</div>
+		</div>
+      <% end %>
+    </div>
+  </div>
+</div>

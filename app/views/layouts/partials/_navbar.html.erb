@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse navbar-static" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Coctaile bar', root_path, class: 'navbar-brand' %>
+    </div>
+    <div class="row">
+      <% if root_path %>
+      <div class="col-sm-5">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Shorts', '#shorts' %></li>
+          <li><%= link_to 'Longs', '#longs' %></li>
+          <li><%= link_to 'All coctailes', '#all' %></li>
+        </ul>
+      </div>
+      <% end %>
+      <div class="navbar-text navbar-top">
+        <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <% end %>
+      </div>
+      <% if admin_signed_in? %>
+          <div class="dropdown navbar-right">
+            <p class="btn navbar-text navbar-right navbar-link dropdown-toggle" role="button" id="accountmenu" data-toggle="dropdown">
+              <small>Signed in as</small> <%= current_admin.email %><b class="caret"></b>
+            </p>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="accountmenu">
+               <li role="presentation"><%= link_to 'Edit', edit_admin_registration_path, role: 'menuitem', tabindex: '-1' %></li>
+               <li role="presentation"><%= link_to 'Exit', destroy_admin_session_path, method: 'delete', role: 'menuitem', tabindex: '-1' %></li>
+              </ul>
+          </div>
+      <% else %>
+          <p class="navbar-text navbar-right"><%= link_to 'Sign in', new_admin_session_path, class: "navbar-link" %></p>
+          <p class="navbar-text navbar-right"><%= link_to 'Registration', new_admin_registration_path, class: "navbar-link" %></p>
+      <% end %>
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,9 @@
+<% if @coctailes.count > 0 %>
+  <%= render partial: 'welcome/partials/coctailes_with_product' %>
+<% end %>
+<% if @shorts.count > 0 %>
+    <%= render partial: 'welcome/partials/shorts' %>
+<% end %>
+<% if @longs.count > 0 %>
+    <%= render partial: 'welcome/partials/longs' %>
+<% end %>

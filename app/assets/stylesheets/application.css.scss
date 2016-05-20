@@ -1,0 +1,94 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+
+input[type = submit] {
+  @extend  .btn;
+  @extend  .btn-success;
+}
+
+input[type = text] {
+  @extend  .form-control;
+}
+
+input[type = number] {
+  @extend  .form-control;
+}
+
+select {
+  @extend .form-control;
+}
+
+.body_panel {
+  @extend .panel;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+label {
+  @extend .col-sm-2;
+  @extend .control-label;
+}
+
+form {
+  @extend .form-horizontal;
+}
+
+.sign_in_panel {
+  @extend .col-sm-offset-4;
+  @extend .col-sm-4;
+  @extend .panel;
+}
+
+.panel {
+  margin: 10px;
+}
+
+.alert {
+  margin: 0px;
+  padding: 0px;
+}
+
+.line-short {
+  background-color: #CD3333;
+  height: 5px;
+  width: 35%;
+}
+
+.line-long {
+  background-color: #228B22;
+  height: 5px;
+  width: 65%;
+}
+
+.line-all {
+  background-color: #D2691E;
+  height: 5px;
+  width: 100%;
+}
+
+.line-coctaile {
+  background-color: #59B01B;
+  height: 5px;
+  width: 100%;
+}
+
+
+

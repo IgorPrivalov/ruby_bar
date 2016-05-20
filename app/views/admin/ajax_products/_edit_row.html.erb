@@ -1,0 +1,15 @@
+<div class="row" id="<%= "edit-#{product.id}" %>">
+  <%= form_for product, url: admin_ajax_product_path(product), method: :put, remote: true do |f| %>
+    <div class="col-xs-10">
+      <%= render partial: 'form', locals: {product: product, f: f} %>
+    </div>
+    <div class="col-xs-2">
+      <%= button_tag(class: "btn btn-default") do %>
+        <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+      <% end %>
+      <%= link_to(admin_ajax_product_path(product), class: 'btn btn-default', remote: true) do %>
+          <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

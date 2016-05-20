@@ -1,0 +1,5 @@
+<div class="col-md-1"></div>
+<div class="col-md-3"><%= f.text_field(:name) %></div>
+<div class="col-md-2"><%= f.number_field(:min_value) %></div>
+<div class="col-md-2"><%= f.number_field(:cost_price) %></div>
+<div class="col-md-2"><%= f.select(:product_type, Product.product_types) %></div>

@@ -1,0 +1,4 @@
+<%= render partial: 'layouts/partials/header' %>
+<%= form_for @coctaile, url: {action: 'create'} do |f| %>
+    <%= render partial: 'form', locals: {f: f}%>
+<% end %>

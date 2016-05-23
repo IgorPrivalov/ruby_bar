@@ -46,8 +46,10 @@ class Admin::CoctailesController < Admin::ApplicationController
   def update
     @coctaile.update_attributes item_params
     if @coctaile.errors.empty?
+      flash[:success] = "Coctaile \'#{@coctaile.name.humanize}\' was created successfully"
       redirect_to action: :index
     else
+      flash[:warning] = @coctaile.errors.full_messages.to_sentence
       prepare_ingredient_items
       render :edit
     end

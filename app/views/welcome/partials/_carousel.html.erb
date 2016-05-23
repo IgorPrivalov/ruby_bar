@@ -3,19 +3,19 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <% @coctailes.each do |coctaile| %>
-    <% if @coctailes.first == coctaile %>
-    <div class="item active">
-    <% else %>
-    <div class="item">
-    <% end %>
-		<div class="col-sm-2 col-sm-offset-5">
-			<%= image_tag(coctaile.image_url) if coctaile.image? %>
-			<div class="carousel-caption">
-				<h3><%= coctaile.name %></h3>
-				<p>Price: <%= coctaile.price %></p>
-			</div>
-		</div>	
-    </div>
+        <% if @coctailes.first == coctaile %>
+            <div class="item active">
+        <% else %>
+            <div class="item">
+        <% end %>
+		    <div class="col-sm-2 col-sm-offset-5">
+			    <%= image_tag(coctaile.image_url) if coctaile.image? %>
+			    <div class="carousel-caption">
+				    <h3><%= coctaile.name %></h3>
+				    <p>Price: <%= coctaile.price %></p>
+			    </div>
+		    </div>
+       </div>
     <% end %>
   </div>
 

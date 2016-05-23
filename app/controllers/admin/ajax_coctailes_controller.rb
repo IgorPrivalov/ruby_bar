@@ -41,11 +41,15 @@ class Admin::AjaxCoctailesController < ApplicationController
   end
 
   def update
+    find_item
     respond_to do |format|
       if @coctaile.update_attributes(item_params)
+        puts 'Product was success'
         format.html { redirect_to admin_ajax_coctaile_path(@coctaile), notice: 'Product was success' }
+        format.js
         format.json { head :no_content }
       else
+        puts @coctaile.errors.full_messages.to_sentence
         format.html { render action: :edit }
         format.json { render json: @coctaile.errors, status: :unprocessable_entity }
       end

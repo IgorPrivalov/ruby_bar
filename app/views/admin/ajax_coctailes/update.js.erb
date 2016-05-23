@@ -1,0 +1,3 @@
+console.log('update.js')
+var row= $("<%= "##{@coctaile.id}" %>")
+row.html("<%= escape_javascript(render partial: 'coctaile', locals: {coctaile: @coctaile, mode: :show}) %>")

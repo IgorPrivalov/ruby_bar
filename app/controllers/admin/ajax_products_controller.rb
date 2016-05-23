@@ -57,6 +57,7 @@ class Admin::AjaxProductsController < ApplicationController
     respond_to do |format|
       if @product.update_attributes(item_params)
         format.html { redirect_to admin_ajax_product_path(@product), notice: 'Product was success' }
+        format.js
         format.json { head :no_content }
       else
         format.html { render action: :edit }

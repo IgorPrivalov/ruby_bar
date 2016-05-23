@@ -35,6 +35,7 @@ gem "mini_magick"
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -10,8 +10,14 @@
     <%= link_to admin_ajax_coctaile_path(coctaile), method: 'delete', remote: true, class: 'btn btn-default' do %>
         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     <% end %>
-    <%= link_to edit_admin_ajax_coctaile_path(coctaile), method: :put, remote: true, class: "btn btn-default" do %>
-      show
+    <% if coctaile.hiden? %>
+        <%= link_to admin_ajax_coctaile_path(coctaile: {hiden: false}, id: coctaile.id), method: :put, remote: true, class: "btn btn-default" do %>
+         <span id="<%= "button_show_hide#{coctaile.id}" %>">show</span>
+        <% end %>
+    <% else %>
+        <%= link_to admin_ajax_coctaile_path(coctaile: {hiden: true}, id: coctaile.id), method: :put, remote: true, class: "btn btn-default" do %>
+            <span id="<%= "button_show_hide#{coctaile.id}" %>">hide</span>
+        <% end %>
     <% end %>
   </div>
 </div>

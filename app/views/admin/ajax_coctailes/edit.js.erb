@@ -1,0 +1,7 @@
+//var row= $("<%= "##{@coctaile.id}" %>")
+//row.html("<%= escape_javascript(render partial: 'coctaile', locals: {coctaile: @coctaile, mode: :edit}) %>")
+<% if @coctaile.hiden? %>
+  document.getElementById("button_show_hide").value = "Show"
+<% else %>
+  document.getElementById("button_show_hide").value = "Hide"
+<% end %>

@@ -7,9 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body data-spy="scroll" data-target=".navbar-nav">
-
-<%= render partial: 'layouts/partials/navbar' %>
-<%= yield %>
+<div class="panel-body">
+  <%= render partial: 'layouts/partials/navbar' %>
+  <%= yield %>
+</div>
 
 </body>
 </html>

@@ -1,15 +1,35 @@
 <%= render partial: 'layouts/partials/header' %>
-<ul>
-  <li><%= "ID: #{@coctaile.id}" %></li>
-  <li><%= "Name: #{@coctaile.name}" %></li>
-  <li><%= "Min value: #{@coctaile.value}" %></li>
-  <li><%= "Cost price: #{@coctaile.price}" %></li>
-  <li><%= "Have alcohol: #{@coctaile.have_alc}" %></li>
-</ul>
-<p>Ingredients</p>
-  <hr>
-<ul>
-    <% @coctaile.ingredients.each do |ingredient| %>
-      <li><%= "#{ingredient.product.name} #{ingredient.value}" %></li>
-    <% end %>
-</ul>
+<div class="panel-body">
+  <div class=row>
+    <%= image_tag(@coctaile.image_url, class: "img-thumbnail col-sm-3 col-sm-offset-1") %>
+    <div class="panel panel-info col-sm-4">
+      <div class="panel-heading">
+        <h1 class="panel-title">Coctaile info</h1>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <li><%= "ID: #{@coctaile.id}" %></li>
+          <li><%= "Name: #{@coctaile.name}" %></li>
+          <li><%= "Min value: #{@coctaile.value}" %></li>
+          <li><%= "Cost price: #{@coctaile.price}" %></li>
+          <li><%= "Have alcohol: #{@coctaile.have_alc}" %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel panel-info col-sm-3">
+      <div class="panel-heading">
+        <h1 class="panel-title">Ingredients</h1>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @coctaile.ingredients.each do |ingredient| %>
+            <li>
+              <%= image_tag(ingredient.product.image_url, size: '50') if ingredient.product.image? %>
+              <%= "#{ingredient.product.name} #{ingredient.value}" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

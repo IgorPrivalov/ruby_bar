@@ -1,6 +1,6 @@
 <div class="row", id="<%= "show-#{coctaile.id}" %>">
   <div class="col-md-1 col-md-offset-1"><%= coctaile.id %></div>
-  <div class="col-md-3 vert-align"><%= coctaile.name %></div>
+  <div class="col-md-3 vert-align"><%= link_to coctaile.name, admin_coctaile_path(coctaile) %></div>
   <div class="col-md-2 vert-align"><%= coctaile.value %></div>
   <div class="col-md-2 vert-align"><%= coctaile.price %></div>
   <div class="col-md-3 vert-align">
@@ -10,6 +10,8 @@
     <%= link_to admin_ajax_coctaile_path(coctaile), method: 'delete', remote: true, class: 'btn btn-default' do %>
         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     <% end %>
-    <%= render partial: 'show_hide_button', locals: {coctaile: coctaile} %>
+    <%= link_to edit_admin_ajax_coctaile_path(coctaile), method: :put, remote: true, class: "btn btn-default" do %>
+      show
+    <% end %>
   </div>
 </div>

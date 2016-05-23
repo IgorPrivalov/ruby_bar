@@ -24,7 +24,16 @@ class Admin::AjaxCoctailesController < ApplicationController
   end
 
   def edit
-    prepare_ingredient_items
+    respond_to do |format|
+      if @coctaile
+        format.html { redirect_to @coctaile, action: :show, notice: "Product was success" }
+        format.js
+        format.json { render json: @coctaile, status: :ok, location: @coctaile }
+      else
+        format.html { render action: :edit }
+        format.json { render json: @coctaile.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def new
@@ -32,14 +41,15 @@ class Admin::AjaxCoctailesController < ApplicationController
   end
 
   def update
-    @coctaile.update_attributes item_params
-    if @coctaile.errors.empty?
-
-      redirect_to action: :index
-    else
-      prepare_ingredient_items
-      render :edit
-    end
+    respond_to do |format|
+      if @coctaile.update_attributes(item_params)
+        format.html { redirect_to admin_ajax_coctaile_path(@coctaile), notice: 'Product was success' }
+        format.json { head :no_content }
+      else
+        format.html { render action: :edit }
+        format.json { render json: @coctaile.errors, status: :unprocessable_entity }
+      end
+    end  
   end
 
   def show_hide

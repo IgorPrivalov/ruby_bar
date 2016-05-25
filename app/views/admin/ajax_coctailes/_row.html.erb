@@ -1,6 +1,6 @@
 <div class="row", id="<%= "show-#{coctaile.id}" %>">
   <div class="col-md-1 col-md-offset-1"><%= coctaile.id %></div>
-  <div class="col-md-3 vert-align"><%= link_to coctaile.name, admin_coctaile_path(coctaile) %></div>
+  <div class="col-md-3 vert-align"><%= render partial: 'name', locals: {coctaile: coctaile, mode: mode} %></div>
   <div class="col-md-2 vert-align"><%= coctaile.value %></div>
   <div class="col-md-2 vert-align"><%= coctaile.price %></div>
   <div class="col-md-3 vert-align">
@@ -10,14 +10,8 @@
     <%= link_to admin_ajax_coctaile_path(coctaile), method: 'delete', remote: true, class: 'btn btn-default' do %>
         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     <% end %>
-    <% if coctaile.hiden? %>
-        <%= link_to admin_ajax_coctaile_path(coctaile: {hiden: false}, id: coctaile.id), method: :put, remote: true, class: "btn btn-default" do %>
-         <span id="<%= "button_show_hide#{coctaile.id}" %>">show</span>
-        <% end %>
-    <% else %>
-        <%= link_to admin_ajax_coctaile_path(coctaile: {hiden: true}, id: coctaile.id), method: :put, remote: true, class: "btn btn-default" do %>
-            <span id="<%= "button_show_hide#{coctaile.id}" %>">hide</span>
-        <% end %>
+    <%= link_to admin_ajax_coctaile_path(coctaile: {hiden: !coctaile.hiden?}, id: coctaile.id), method: :put, remote: true, class: "btn btn-default" do %>
+        <span id="<%= "button_show_hide#{coctaile.id}" %>"><%= coctaile.hiden? ? "Show":"Hide" %></span>
     <% end %>
   </div>
 </div>

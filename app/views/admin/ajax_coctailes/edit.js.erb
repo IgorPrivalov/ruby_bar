@@ -1,0 +1,2 @@
+var row= $("<%= "##{@coctaile.id}" %>")
+row.html("<%= escape_javascript(render partial: 'row', locals: {coctaile: @coctaile, mode: :edit}) %>")

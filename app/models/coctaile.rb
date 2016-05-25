@@ -61,15 +61,6 @@ class Coctaile < ActiveRecord::Base
     }
   end
 
-  def show_hide
-    if hiden?
-      self.hiden = 0
-    else
-      self.hiden = 1
-    end
-  end
-
-
 private
 
   def set_alcohol_status!

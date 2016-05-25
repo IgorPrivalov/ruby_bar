@@ -1,0 +1,10 @@
+<% if mode == :show %>
+    <%= link_to coctaile.name, admin_coctaile_path(coctaile) %> <%= link_to edit_admin_ajax_coctaile_path(coctaile), remote: true %>
+<% else %>
+    <%= form_for coctaile, url: admin_ajax_coctaile_path(coctaile), method: :put, remote: true do |f| %>
+        <%= render partial: 'form', locals: {coctaile: coctaile, f: f} %>
+        <%= button_tag(class: "btn btn-default") do %>
+            <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+        <% end %>
+    <% end %>
+<% end %>
